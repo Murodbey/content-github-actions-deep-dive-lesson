@@ -59,13 +59,12 @@ jobs:
           body: New release for ${{ github.sha }}. Release notes on the documentation site
           draft: false
           prerelease: false
-          
       - name: download artifact
         uses: actions/download-artifactory@v2
         with:
           name: zipped-bundle
       - name: upload release asset
-        uses: actions/upload-release-asses@v1
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${[ secrets.github_token }}
         with:
